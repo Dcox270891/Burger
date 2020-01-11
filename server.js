@@ -21,11 +21,11 @@ app.listen(PORT, function() {
 app.get(`/`, function (req, res) {
     orm.selectAll(burgers => {
         burgerToRender = [];
-        burgers.forEach(({ burger, devoured})=>{
+        burgers.forEach(({ id, burger, devoured})=>{
             if (devoured === 1){
                 console.log(`${burger} has already been eaten`);
             } else {
-                const newBurger = new Burger(burger,false);
+                const newBurger = new Burger(id, burger, false);
                 burgerToRender.push(newBurger);
             }
         })
@@ -35,8 +35,12 @@ app.get(`/`, function (req, res) {
 });
 
 app.post(`/`, function (req, res){
-    const createdBurger = new Burger(req.body.createdBurger);
-    console.log(createdBurger);
+    const createdBurger = req.body.createdBurger;
+    console.log(createdBurger)
     orm.insertOne(createdBurger);
     res.redirect(`/`);
+})
+
+app.patch(`/`, function (req,res) {
+    orm.updateOne(toUpdate, updatedInfo)
 })

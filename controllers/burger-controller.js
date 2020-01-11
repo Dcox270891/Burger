@@ -1,11 +1,9 @@
 class Burger {
-    constructor(burger, devoured){
+    constructor(id, burger, devoured){
+        this.id = id 
         this.burger = burger;
         this.devoured = false;
     };
-    devour(){
-        this.devoured = true;
-    }
 };
 
 module.exports = Burger;
