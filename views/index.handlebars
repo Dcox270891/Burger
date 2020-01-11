@@ -1,0 +1,14 @@
+<div class="burgers-to-devour">
+    <h1 class="heading">Ready to devour</h1>
+
+    <ul>
+        {{#each burgers}}
+            <li>
+                <label for="devourBurger">
+                    {{burger}}
+                    <button class="devour" data-id="{{id}}" data-devoured="{{devoured}}">Devour this burger</button>
+                </label>
+            </li>
+        {{/each}}
+    </ul>
+</div>
