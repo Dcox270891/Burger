@@ -1,6 +1,5 @@
-const connection = require(`./config/connection.js`);
 const orm = require(`./config/orm.js`);
-const Burger = require(`./controllers/burger-controller.js`);
+const Burger = require(`./models/burger.js`);
 const PORT = process.env.PORT || 4567;
 const express = require("express");
 const exphbs = require("express-handlebars");
@@ -39,8 +38,11 @@ app.post(`/`, function (req, res){
     console.log(createdBurger)
     orm.insertOne(createdBurger);
     res.redirect(`/`);
-})
+});
 
 app.patch(`/`, function (req,res) {
-    orm.updateOne(toUpdate, updatedInfo)
-})
+    if(devour === true){
+        orm.updateOne(ToUpdate, updatedInfo, idToUpdate);
+        res.redirect(`/`);
+    };
+});

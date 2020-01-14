@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+.column{
+    display: flex;
+    position: relative;
+    width: 100%;
+    flex-direction: column;
+    color: blue;
+}
+
+li {
+    background-color: wheat;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 50%;
+    font-family: sans-serif;
+}

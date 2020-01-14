@@ -15,11 +15,11 @@ const orm={
         });
     },
 
-    updateOne(toUpdate, updatedInfo, callback){
-        connection.query('UPDATE burgers SET ? WHERE ?', [toUpdate, updatedInfo], (err, res) => {
+    updateOne(ToUpdate, updatedInfo, idToUpdate, callback){
+        connection.query('UPDATE burgers SET ?? = ? WHERE id = ?', [ToUpdate, updatedInfo, idToUpdate], (err, res) => {
             if (err) throw err;
-            console.log(`${toUpdate} has been edited in the database to ${updatedInfo}`);
-            callback(results);
+                console.log(`${idToUpdate} has been edited in the database to ${ToUpdate} = ${updatedInfo}`);
+            callback(res);
         });
     }
 };
